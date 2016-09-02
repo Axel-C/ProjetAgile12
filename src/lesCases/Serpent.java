@@ -10,7 +10,7 @@ public class Serpent {
 	private int direction;
 	private Tete tete;
 
-	public Serpent(int id, int x, int y) {d
+	public Serpent(int id, int x, int y) {
 		serpent = new ArrayList<Corp>();
 		tete = new Tete(x, y, id);
 		test.plateau.placer(x, y, tete);

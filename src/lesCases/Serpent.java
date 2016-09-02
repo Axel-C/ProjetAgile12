@@ -10,7 +10,7 @@ public class Serpent {
 	private int direction;
 	private Tete tete;
 
-	public Serpent(int id, int x, int y) {
+	public Serpent(int id, int x, int y) {d
 		serpent = new ArrayList<Corp>();
 		tete = new Tete(x, y, id);
 		test.plateau.placer(x, y, tete);
@@ -76,9 +76,9 @@ public class Serpent {
 if(!arrivee.estfranchissable()){
 	
 		if(this.getNumeroEquipe() == 1){
-			System.out.println(Case.BLUE + "L'équipe 2 a gagné" + Case.RESET);
+			System.out.println(Case.RED + "L'équipe 2 a gagné" + Case.RESET);
 		}else{
-			System.out.println(Case.RED + "L'équipe 1 à gagné" + Case.RESET);
+			System.out.println(Case.CYAN + "L'équipe 1 à gagné" + Case.RESET);
 		}
 		test.jeu.finDePartie();
 }
@@ -103,7 +103,7 @@ if(!arrivee.estfranchissable()){
 
 	public int getY() {
 		// TODO Auto-generated method stub
-		return this.tete.getY()
+		return this.tete.getY();
 	}
 
 	public int getNumeroEquipe() {

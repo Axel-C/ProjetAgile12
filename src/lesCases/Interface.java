@@ -13,16 +13,16 @@ import javax.swing.JPanel;
 
 import javafx.scene.control.Separator;
 
-public class Interface extends JFrame implements KeyListener {
-	JFrame fenetre ;
-	public JPanel couleur ;
-	
+public class Interface extends JFrame {
+	JFrame fenetre;
+	public JPanel couleur;
+
 	public Interface() {
-		
+
 		// TODO Auto-generated constructor stub
 		setTitle("Contrôles");
-		setSize(300	, 200);
-		
+		setSize(300, 200);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setLayout(new GridLayout(3, 3));
@@ -31,93 +31,110 @@ public class Interface extends JFrame implements KeyListener {
 		JButton bas = new JButton("BAS");
 		JButton gauche = new JButton("GAUCHE");
 		couleur = new JPanel();
-		haut.addActionListener(new ActionListener(){
-			
+		haut.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(test.jeu.actif.equals(test.jeu.s1)){
 				test.jeu.actif.deplacer(Directions.NORD);
 				test.jeu.tourSuivant();
-				
+				}
+
 			}
 		});
-droite.addActionListener(new ActionListener() {
-			
+		droite.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(test.jeu.actif.equals(test.jeu.s1)){
 				test.jeu.actif.deplacer(Directions.EST);
 				test.jeu.tourSuivant();
-				
+				}
+
 			}
 		});
-bas.addActionListener(new ActionListener() {
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		test.jeu.actif.deplacer(Directions.SUD);
-		test.jeu.tourSuivant();
-		
-	}
-});
-gauche.addActionListener(new ActionListener() {
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		test.jeu.actif.deplacer(Directions.OUEST);
-		test.jeu.tourSuivant();
-		
-	}
-});
+		bas.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(test.jeu.actif.equals(test.jeu.s1)){
+				test.jeu.actif.deplacer(Directions.SUD);
+				test.jeu.tourSuivant();
+				}
 
-		
-		
-		
-		
-		
+			}
+		});
+		gauche.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(test.jeu.actif.equals(test.jeu.s1)){
+				test.jeu.actif.deplacer(Directions.OUEST);
+				test.jeu.tourSuivant();
+				}
+
+			}
+		});
+		KeyListener listener = new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if(test.jeu.actif.equals(test.jeu.s2)){
+				if(e.getKeyChar() == 'z'){
+					test.jeu.actif.deplacer(Directions.NORD);
+					test.jeu.tourSuivant();
+					System.out.println("test");
+				}
+				if(e.getKeyChar() == 'q'){
+					test.jeu.actif.deplacer(Directions.OUEST);
+					test.jeu.tourSuivant();
+				}
+				if(e.getKeyChar() == 'd'){
+					test.jeu.actif.deplacer(Directions.EST);
+					test.jeu.tourSuivant();
+				}
+					if(e.getKeyChar() == 's'){
+						test.jeu.actif.deplacer(Directions.SUD);
+						test.jeu.tourSuivant();
+				}
+				}
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
 		add(new JPanel());
 		add(haut);
 		add(new JPanel());
 		add(gauche);
 		add(couleur);
-		
+
 		add(droite);
 		add(new JPanel());
 		add(bas);
 		add(new JPanel());
 		
-		
+		haut.addKeyListener(listener);
+		gauche.addKeyListener(listener);
+		droite.addKeyListener(listener);
+		bas.addKeyListener(listener);
 		setVisible(true);
 		couleur.setBackground(Color.CYAN);
-		
-		
-		
+
 	}
-	
-	public void fermer(){
+
+	public void fermer() {
 		dispose();
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		if(e.getKeyChar() == 'z'){
-			test.jeu.actif.deplacer(Directions.NORD);
-			test.jeu.tourSuivant();
-			System.out.println("dsiusvyusd");
-		}
-		System.out.println("hyvcysu");
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

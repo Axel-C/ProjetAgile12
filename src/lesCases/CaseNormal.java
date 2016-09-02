@@ -31,8 +31,6 @@ private Random random;
 private String representation = Case.BLACK + " " + Case.RESET;
 
 
-private int ratio = 0;
-
 //////////////////////////////////////////////////////////////////////////////
 // CONSTRUCTEUR //
 //////////////////////////////////////////////////////////////////////////////
@@ -57,7 +55,6 @@ super(coordonnes);
 
 super.obj = obj;
 this.setModifiable(true);
-this.setRepresentaion(obj.getRepresentationObjetATrouver());
 franchissable = true ;
 }
  /**
@@ -72,10 +69,7 @@ franchissable = true ;
 
 }
 
- 
-//////////////////////////////////////////////////////////////////////////////
-// GETTER/SETTER REPRESENTATION //
-//////////////////////////////////////////////////////////////////////////////
+
 
 /**
  * retourne la representation courante de l equipe 1
@@ -102,23 +96,14 @@ return this.representation ;
  * Retourn le ratio
  * @return ratio entier entre 0 et 100
  */
-public int getRatio() {
-return this.ratio;
-}
 
-private void setRepresentaion(String nouvelle){
-	this.representation=nouvelle;
-	
-}
+
 
 //////////////////////////////////////////////////////////////////////////////
 // TO STRING //
 //////////////////////////////////////////////////////////////////////////////
 
-public String toString() {
-return "CaseNormal obj=" + obj + "\n representationEquipe1=" + representation
-+ "\n representationEquipe2=" + representation + "\n ratio=" + ratio + "\n";
-}
+
 @Override
 public int getNumeroEquipe() {
 	

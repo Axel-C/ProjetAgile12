@@ -5,17 +5,17 @@ public class Game {
 	
 	
 
-	public Game(){
+	public Game(Plateau plat){
 		char c;
 		
 		boolean b=true;
 		
 
-		Serpent s1 = new Serpent(1, 8, 8);
-		Serpent s2 = new Serpent(2, 2, 2);
+		Serpent s1 = new Serpent(1, plat.getTaille()-2, plat.getTaille()-3);
+		Serpent s2 = new Serpent(2, 1, 1);
 		
 		while(!victoire){
-			test.plateau.afficher();
+			plat.afficher();
 			
 			c=getCar();
 			

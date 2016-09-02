@@ -9,7 +9,7 @@ package lesCases;
  */
 public enum ObjetATrouver {
 	
-	pomme(1,Case.GREEN+"Q"+Case.RESET,1,0), pomme_pourri(2,Case.RED+"Q"+Case.RESET,-1,0), café(3,Case.GREEN+"U"+Case.RESET,0,1), tisane(4,Case.GREEN+"U"+Case.RESET,0,-1);
+	pomme(1,Case.GREEN+"Q"+Case.RESET,1,0), pomme_pourri(2,Case.RED+"Q"+Case.RESET,-1,0), cafe(3,Case.GREEN+"U"+Case.RESET,0,1), tisane(4,Case.GREEN+"U"+Case.RESET,0,-1);
 
 //////////////////////////////////////////////////////////////////////////////
 //                               ATRIBUS                                    //

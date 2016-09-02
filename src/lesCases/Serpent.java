@@ -81,6 +81,7 @@ if(!arrivee.estfranchissable()){
 		}else{
 			System.out.println(Case.RED + "L'équipe 1 à gagné" + Case.RESET);
 		}
+		test.jeu.finDePartie();
 }
 		
 		

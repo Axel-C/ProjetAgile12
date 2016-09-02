@@ -3,4 +3,8 @@ Bonjour, et bienvenue dans le jeu Snake Tron.
 Deux joueurs devront s'affronter en controlant leur serpent.
 Vous croiserez des bonus et des malus qui seront décisifs pour gagner.
 Vous jouerez tour par tour.
-Le but est de ne pas avoir de collision avec le joueur adverse.
+Le but est de ne pas avoir de collision avec le joueur adverse, mais aussi de pousser celui-ci à 
+rentrer en collision avec le corps de votre serpent.
+Foncer dans un mur vous fait perdre la partie.
+Le joueur 1 utilise les touches Z Q S et D pour se déplacer, le joueur 2 utilise les touches 5 1 2 et 3.
+

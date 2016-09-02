@@ -1,3 +1,6 @@
-Bienvenue
-dans 
-les regles.
+Bonjour, et bienvenue dans le jeu Snake Tron.
+
+Deux joueurs devront s'affronter en controlant leur serpent.
+Vous croiserez des bonus et des malus qui seront décisifs pour gagner.
+Vous jouerez tour par tour.
+Le but est de ne pas avoir de collision avec le joueur adverse.

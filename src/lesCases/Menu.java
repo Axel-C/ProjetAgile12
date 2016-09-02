@@ -136,11 +136,11 @@ public class Menu {
 			choix_plateau = s.nextInt();
 		}
 		
-		plateauChoisi=new Plateau(choix_plateau);
+		plateauChoisi=new Plateau(choix_plateau); 
 		
 	}
 	
 	public Plateau getPlateauChoisi() {
-		return new Plateau(taillePlateau);
+		return plateauChoisi;  
 	}
 }

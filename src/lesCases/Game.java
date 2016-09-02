@@ -19,7 +19,6 @@ public class Game {
 			
 			c=getCar();
 			
-			System.out.println(b);
 			if(b){
 			
 				if(c=='z'){

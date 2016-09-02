@@ -1,3 +1,5 @@
+*******************************************************************************************************
+
 Bonjour, et bienvenue dans le jeu Snake Tron.
 
 Deux joueurs devront s'affronter en controlant leur serpent.
@@ -8,3 +10,4 @@ rentrer en collision avec le corps de votre serpent.
 Foncer dans un mur vous fait perdre la partie.
 Le joueur 1 utilise les touches Z Q S et D pour se déplacer, le joueur 2 utilise les touches 5 1 2 et 3.
 
+*******************************************************************************************************

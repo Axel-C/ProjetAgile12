@@ -14,7 +14,7 @@ public class Plateau {
 	private int y=getTaille();
 	private int x=getTaille();
 	private int numeroPlateau;
-    private Affichable[][][] plateau;
+    private Affichable[][] plateau;
 	private int nbEquipe;
 	private Random random;
 	
@@ -22,7 +22,7 @@ public class Plateau {
 		x = getTaille();
 		y = getTaille();
 		numeroPlateau = 0;
-	    plateau = new Affichable[x][y][3];
+	    plateau = new Affichable[x][y];
 	    
 	    generationPlateau(plateau);
         
@@ -33,7 +33,7 @@ public class Plateau {
 		x = getTaille();
 		y = getTaille();
 		numeroPlateau = numPlateau;
-	    plateau = new Affichable[x][y][3];
+	    plateau = new Affichable[x][y];
 	    
 	    generationPlateau(plateau);
         
@@ -44,14 +44,14 @@ public class Plateau {
 		this.x = x;
 		this.y = y;
 		numeroPlateau = numPlateau;
-	    plateau = new Affichable[this.x][this.y][3];
+	    plateau = new Affichable[this.x][this.y];
 	    
 	    generationPlateau(plateau);
         
 		
 	}
 	
-	private void generationPlateau(Affichable[][][] plateau) {
+	private void generationPlateau(Affichable[][] plateau2) {
 		
 		int[] tab = new int[3];
 				/// PLATEAU VIERGE UNIQUEMENT CASE NORMAL
@@ -60,42 +60,42 @@ public class Plateau {
 						tab[0] = j;
 						tab[1] = i;
 						tab[2] = 0;
-						this.plateau[j][i][0] = new CaseNormal(tab);
+						this.plateau[j][i] = new CaseNormal(tab);
 					}
 				}
 
 				// CONTOUR EN ROCHER
-				genereContour(plateau);
-				genereMotif(plateau,numeroPlateau);
+				genereContour(plateau2);
+				genereMotif(plateau2,numeroPlateau);
 				
 		}
 	
-	private void genereContour(Affichable[][][] plateau) {
+	private void genereContour(Affichable[][] plateau2) {
 
 		int[] tab = new int[3];
 		for (int i1 = 0; i1 < x; i1++) {
 			tab[0] = i1;
 			tab[1] = 0;
 			tab[2] = 0;
-			this.plateau[i1][0][0] = new Rocher(tab);
+			this.plateau[i1][0] = new Rocher(tab);
 			tab[0] = i1;
 			tab[1] = y - 1;
 			tab[2] = 0;
-			this.plateau[i1][y - 1][0] = new Rocher(tab);
+			this.plateau[i1][y - 1] = new Rocher(tab);
 		}
 
 		for (int j = 0; j < y; j++) {
 			tab[0] = 0;
 			tab[1] = j;
 			tab[2] = 0;
-			this.plateau[0][j][0] = new Rocher(tab);
+			this.plateau[0][j] = new Rocher(tab);
 			tab[0] = x - 1;
 			tab[1] = j;
 			tab[2] = 0;
-			this.plateau[x - 1][j][0] = new Rocher(tab);
+			this.plateau[x - 1][j] = new Rocher(tab);
 		}
 	}
-	private void genereMotif(Affichable[][][] plateau,int numero){
+	private void genereMotif(Affichable[][] plateau2,int numero){
 		int[] tab = new int[3];
 		switch (numero)
 		{
@@ -105,13 +105,13 @@ public class Plateau {
 					tab[0] = i1;
 					tab[1] = 2;
 					tab[2] = 0;
-					this.plateau[i1][2][0] = new Rocher(tab);
+					this.plateau[i1][2] = new Rocher(tab);
 				}
 				for (int i1 =2 ; i1 < x-2 ; i1++) {
 					tab[0] = i1;
 					tab[1] = y-2;
 					tab[2] = 0;
-					this.plateau[i1][y-3][0] = new Rocher(tab);
+					this.plateau[i1][y-3] = new Rocher(tab);
 				}
 		    break; 
 		  case 2:
@@ -120,14 +120,14 @@ public class Plateau {
 				  tab[0] = i1;
 				  tab[1] = 4;
 				  tab[2] = 0;
-					this.plateau[i1][5][0] = new Rocher(tab);
+					this.plateau[i1][5] = new Rocher(tab);
 			  }
 			  
 			  for (int i2=3; i2<x-3; i2++){
 				  tab[0] = 5;
 				  tab[1] = i2;
 				  tab[2] = 0;
-					this.plateau[5][i2][0] = new Rocher(tab);
+					this.plateau[5][i2] = new Rocher(tab);
 			  }
 			  
 			break;
@@ -137,14 +137,14 @@ public class Plateau {
 				  tab[0] = 2;
 				  tab[1] = i1;
 				  tab[2] = 0;
-					this.plateau[2][i1][0] = new Rocher(tab);
+					this.plateau[2][i1] = new Rocher(tab);
 			  }
 			  
 			  for (int i2=2; i2<x-2; i2++){
 				  tab[0] = x-2;
 				  tab[1] = i2;
 				  tab[2] = 0;
-					this.plateau[x-3][i2][0] = new Rocher(tab);
+					this.plateau[x-3][i2] = new Rocher(tab);
 			  }
 			  break;
 			  
@@ -161,7 +161,7 @@ public class Plateau {
 			for (int i = 0; i < y; i++) {
 				for (int j = 0; j < x; j++) {
 
-					System.out.print("|" + this.plateau[j][i][0].getRepresentation());
+					System.out.print("|" + this.plateau[j][i].getRepresentation());
 					
 				}
 				System.out.println("|");
@@ -170,10 +170,10 @@ public class Plateau {
 		}
 		
 		public void placer( int x , int y ,Case c){
-			this.plateau[x][y][0] = c ;
+			this.plateau[x][y] = c ;
 		}
 		public void placer(Affichable c){
-			this.plateau[c.getX()][c.getY()][0] = c ;
+			this.plateau[c.getX()][c.getY()] = c ;
 		}
 		
 		public int getTaille(){
@@ -210,7 +210,7 @@ public class Plateau {
 		}
 		
 		public Case getCase(int x , int y){
-			return (Case) plateau[x][y][0] ;
+			return (Case) plateau[x][y] ;
 		}
 		
 	

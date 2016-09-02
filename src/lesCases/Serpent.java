@@ -74,7 +74,6 @@ public class Serpent {
 					
 		}
 if(!arrivee.estfranchissable()){
-	System.out.println("X : "+ teteX + " Y : " + teteY);
 	
 		if(id == 1){
 			System.out.println(Case.BLUE + "L'équipe 2 a gagné" + Case.RESET);

@@ -145,6 +145,6 @@ public class Game {
 	
 	public void finDePartie(){
 		controle.fermer();
-		new Menu() ;
+		
 	}
 }

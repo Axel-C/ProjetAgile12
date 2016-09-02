@@ -13,19 +13,19 @@ import javax.swing.JPanel;
 
 import javafx.scene.control.Separator;
 
-public class Interface {
+public class Interface extends JFrame implements KeyListener {
 	JFrame fenetre ;
 	public JPanel couleur ;
 	
 	public Interface() {
 		
 		// TODO Auto-generated constructor stub
-		fenetre = new JFrame("Contrôles");
-		fenetre.setSize(300	, 200);
+		setTitle("Contrôles");
+		setSize(300	, 200);
 		
-		fenetre.setLocationRelativeTo(null);
-		fenetre.setResizable(false);
-		fenetre.setLayout(new GridLayout(3, 3));
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setLayout(new GridLayout(3, 3));
 		JButton haut = new JButton("HAUT");
 		JButton droite = new JButton("DROITE");
 		JButton bas = new JButton("BAS");
@@ -68,53 +68,25 @@ gauche.addActionListener(new ActionListener() {
 	}
 });
 
-couleur.addKeyListener(new KeyListener() {
-	
-	@Override
-	public void keyTyped(KeyEvent e) {
-		if(e.getKeyChar() == 'z'){
-			test.jeu.actif.deplacer(Directions.NORD);
-			test.jeu.tourSuivant();
-		}
-		if((e.getKeyCode()==KeyEvent.VK_ENTER)){
-            System.out.println("vous avez apuyer sur entrer"); 
-}
-		
-	}
-	
-	@Override
-	public void keyReleased(KeyEvent e) {
-		if(e.getKeyChar() == 'z'){
-			test.jeu.actif.deplacer(Directions.NORD);
-			test.jeu.tourSuivant();
-		}
-		
-	}
-	
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-});
+
 		
 		
 		
 		
 		
-		fenetre.add(new JPanel());
-		fenetre.add(haut);
-		fenetre.add(new JPanel());
-		fenetre.add(gauche);
-		fenetre.add(couleur);
+		add(new JPanel());
+		add(haut);
+		add(new JPanel());
+		add(gauche);
+		add(couleur);
 		
-		fenetre.add(droite);
-		fenetre.add(new JPanel());
-		fenetre.add(bas);
-		fenetre.add(new JPanel());
+		add(droite);
+		add(new JPanel());
+		add(bas);
+		add(new JPanel());
 		
 		
-		fenetre.setVisible(true);
+		setVisible(true);
 		couleur.setBackground(Color.CYAN);
 		
 		
@@ -122,7 +94,30 @@ couleur.addKeyListener(new KeyListener() {
 	}
 	
 	public void fermer(){
-		fenetre.dispose();
+		dispose();
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		if(e.getKeyChar() == 'z'){
+			test.jeu.actif.deplacer(Directions.NORD);
+			test.jeu.tourSuivant();
+			System.out.println("dsiusvyusd");
+		}
+		System.out.println("hyvcysu");
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -1,3 +1,3 @@
 # ProjetAgile12
 
-SALUT
+Projet Agile réalisé en Septembre 2016
